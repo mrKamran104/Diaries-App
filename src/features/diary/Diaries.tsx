@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import { setUser } from "../auth/userSlice";
 import DiaryTile from "./DiaryTile";
 import { User } from "../../interfaces/user.interface";
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import DiaryEntriesList from "./DiaryEntriesList";
 import { useAppDispatch } from "../../store";
 import dayjs from "dayjs";
@@ -81,7 +81,7 @@ const Diaries: FC = () => {
 
   return (
     <div style={{ padding: "1em 0.4em" }}>
-      <Routes>
+      <Switch>
         <Route path="/diary/:id">
           <DiaryEntriesList />
         </Route>
@@ -91,7 +91,7 @@ const Diaries: FC = () => {
             <DiaryTile key={idx} diary={diary} />
           ))}
         </Route>
-      </Routes>
+      </Switch>
     </div>
   );
 };
